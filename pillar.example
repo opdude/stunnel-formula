@@ -4,8 +4,8 @@ stunnel:
   lookup:
     package: stunnel4
     service: stunnel4
-    user: stunnel4
-    group: stunnel4
+    default_user: stunnel4
+    default_group: stunnel4
     home: /var/lib/stunnel4
     conf_dir: /etc/stunnel
     log_dir: /var/log/stunnel
@@ -16,7 +16,11 @@ stunnel:
     cert: /etc/stunnel/stunnel.crt
     key: /etc/stunnel/stunnel.key
     ca: /etc/stunnel/ca.crt
-    verify: 3
+    # verify: 3  # obsolete
+    verifyChain: yes
+    verifyPeer: yes
+
+    debug: notice
 
     sslVersion: all
     ciphers: 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:ECDH-ECDSA-AES256-GCM-SHA384:AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:ECDH-RSA-AES128-GCM-SHA256:ECDH-ECDSA-AES128-GCM-SHA256:AES128-GCM-SHA256'
